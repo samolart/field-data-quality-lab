@@ -3,7 +3,7 @@
 Automated high-frequency checks (HFCs), a simulation stress test and a randomised-trial analysis on two real Precision Development (formerly PAD/IPA) SMS-advice trials in Kenya.
 
 - **Report (21 pages):** `report/report.pdf`
-- **Interactive dashboard:** `dashboard/index.html` (open locally, or enable GitHub Pages and serve `/dashboard`)
+- **[Interactive Live Dashboard](https://samolart.github.io/field-data-quality-lab/dashboard/index.html)**
 - **SurveyCTO/ODK instrument:** `xlsform/pxd_lime_midline_LR2017.xlsx`
 
 ## Headline results
