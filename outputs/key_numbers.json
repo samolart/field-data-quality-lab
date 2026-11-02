@@ -1,0 +1,1947 @@
+{
+ "inventory": {
+  "files": 38,
+  "rows": 756586,
+  "cells": 10383150,
+  "largest_rows": 202972,
+  "largest_file": "OAF3_admin_sample_raw.csv",
+  "largest_cols": 35,
+  "scale_read_s": 0.46,
+  "scale_qa_s": 0.41
+ },
+ "pad2": {
+  "n_baseline": 5890,
+  "n_endline": 4933,
+  "n_fo": 26,
+  "tiers": {
+   "Green": 12,
+   "Amber": 9,
+   "Red": 4,
+   "Insufficient": 1
+  },
+  "red_fos": [
+   "P2-05",
+   "P2-07",
+   "P2-10",
+   "P2-102"
+  ],
+  "amber_fos": [
+   "P2-04",
+   "P2-06",
+   "P2-08",
+   "P2-100",
+   "P2-101",
+   "P2-103",
+   "P2-19",
+   "P2-22",
+   "P2-99"
+  ],
+  "null_mean_red": 0.0,
+  "null_p_any_red": 0.0,
+  "null_mean_flagged": 0.20666666666666667,
+  "null_p_any_flag": 0.18,
+  "omnibus": {
+   "path_len": 0.000249937515621,
+   "dk_rate": 0.000249937515621,
+   "straightline": 0.000249937515621,
+   "gate_no": 0.000249937515621,
+   "admin_mismatch": 0.4356410897275681,
+   "logic_viol": null,
+   "dup_vector": null
+  },
+  "logic_viol": 0.0,
+  "dk": 0.007530649460748077,
+  "dup": 0.5305088181633895,
+  "straight": 0.011149401986620717,
+  "arms": {
+   "SMS+Call": 1475,
+   "SMS": 1473,
+   "SMS+Call offer": 1472,
+   "Control": 1470
+  },
+  "resp_by_arm": {
+   "Control": 0.8415,
+   "SMS": 0.8506,
+   "SMS+Call": 0.8237,
+   "SMS+Call offer": 0.8342
+  },
+  "itt": [
+   {
+    "outcome": "heard_lime",
+    "label": "Heard of lime (survey)",
+    "source": "survey",
+    "control_mean": 0.81095,
+    "itt": 0.05513,
+    "se": 0.01239,
+    "ci_lo": 0.03084,
+    "ci_hi": 0.07942,
+    "p": 1e-05,
+    "n": 4822,
+    "mde_80": 0.0347,
+    "rel_effect": 0.06798,
+    "lee_lo": 0.05163,
+    "lee_hi": 0.05814,
+    "lee_ci_lo": 0.01901,
+    "lee_ci_hi": 0.08721,
+    "p_holm": 4e-05,
+    "q_bh": 3e-05
+   },
+   {
+    "outcome": "knows_lime",
+    "label": "Names lime as acidity remedy (survey)",
+    "source": "survey",
+    "control_mean": 0.44382,
+    "itt": 0.10222,
+    "se": 0.01559,
+    "ci_lo": 0.07165,
+    "ci_hi": 0.13278,
+    "p": 0.0,
+    "n": 4933,
+    "mde_80": 0.04366,
+    "rel_effect": 0.23031,
+    "lee_lo": 0.09821,
+    "lee_hi": 0.10472,
+    "lee_ci_lo": 0.06145,
+    "lee_ci_hi": 0.13953,
+    "p_holm": 0.0,
+    "q_bh": 0.0
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "label": "Used lime, LR2017 (survey)",
+    "source": "survey",
+    "control_mean": 0.17542,
+    "itt": 0.04895,
+    "se": 0.0127,
+    "ci_lo": 0.02407,
+    "ci_hi": 0.07384,
+    "p": 0.00012,
+    "n": 4933,
+    "mde_80": 0.03555,
+    "rel_effect": 0.27905,
+    "lee_lo": 0.048,
+    "lee_hi": 0.05451,
+    "lee_ci_lo": 0.01712,
+    "lee_ci_hi": 0.08424,
+    "p_holm": 0.00047,
+    "q_bh": 0.00023
+   },
+   {
+    "outcome": "used_urea_lr2017",
+    "label": "Used urea, LR2017 (survey)",
+    "source": "survey",
+    "control_mean": 0.15117,
+    "itt": 0.03321,
+    "se": 0.0119,
+    "ci_lo": 0.00988,
+    "ci_hi": 0.05654,
+    "p": 0.00529,
+    "n": 4933,
+    "mde_80": 0.03333,
+    "rel_effect": 0.2197,
+    "lee_lo": 0.0348,
+    "lee_hi": 0.04131,
+    "lee_ci_lo": 0.01028,
+    "lee_ci_hi": 0.07146,
+    "p_holm": 0.01587,
+    "q_bh": 0.00793
+   },
+   {
+    "outcome": "redeemed_lime",
+    "label": "Redeemed lime coupon (admin)",
+    "source": "admin",
+    "control_mean": 0.1068,
+    "itt": 0.01669,
+    "se": 0.00923,
+    "ci_lo": -0.0014,
+    "ci_hi": 0.03479,
+    "p": 0.0706,
+    "n": 5890,
+    "mde_80": 0.02585,
+    "rel_effect": 0.15631,
+    "lee_lo": NaN,
+    "lee_hi": NaN,
+    "lee_ci_lo": NaN,
+    "lee_ci_hi": NaN,
+    "p_holm": 0.1412,
+    "q_bh": 0.08472
+   },
+   {
+    "outcome": "redeemed_fert",
+    "label": "Redeemed fertiliser coupon (admin)",
+    "source": "admin",
+    "control_mean": 0.08707,
+    "itt": -0.00631,
+    "se": 0.00802,
+    "ci_lo": -0.02203,
+    "ci_hi": 0.00941,
+    "p": 0.43159,
+    "n": 5890,
+    "mde_80": 0.02246,
+    "rel_effect": -0.07245,
+    "lee_lo": NaN,
+    "lee_hi": NaN,
+    "lee_ci_lo": NaN,
+    "lee_ci_hi": NaN,
+    "p_holm": 0.43159,
+    "q_bh": 0.43159
+   }
+  ],
+  "balance": [
+   {
+    "var": "age_b",
+    "control_mean": 42.098,
+    "treated_mean": 41.4387,
+    "diff": -0.6796,
+    "se": 0.364,
+    "p": 0.0619,
+    "n": 5890
+   },
+   {
+    "var": "female_b",
+    "control_mean": 0.3422,
+    "treated_mean": 0.3419,
+    "diff": 0.0003,
+    "se": 0.0138,
+    "p": 0.9834,
+    "n": 5890
+   },
+   {
+    "var": "primary_b",
+    "control_mean": 0.7177,
+    "treated_mean": 0.702,
+    "diff": -0.0159,
+    "se": 0.0134,
+    "p": 0.2378,
+    "n": 5890
+   },
+   {
+    "var": "secondary_b",
+    "control_mean": 0.1259,
+    "treated_mean": 0.1256,
+    "diff": -0.0004,
+    "se": 0.0097,
+    "p": 0.9699,
+    "n": 5890
+   },
+   {
+    "var": "english_b",
+    "control_mean": 0.3633,
+    "treated_mean": 0.3495,
+    "diff": -0.0132,
+    "se": 0.0141,
+    "p": 0.3486,
+    "n": 5890
+   },
+   {
+    "var": "mention_lime_b",
+    "control_mean": 0.2551,
+    "treated_mean": 0.2502,
+    "diff": -0.0047,
+    "se": 0.0129,
+    "p": 0.7174,
+    "n": 5890
+   },
+   {
+    "var": "size_shamba_b",
+    "control_mean": 2.017,
+    "treated_mean": 1.9886,
+    "diff": -0.0321,
+    "se": 0.0722,
+    "p": 0.6566,
+    "n": 5890
+   },
+   {
+    "var": "ever_used_lime_b",
+    "control_mean": 0.0871,
+    "treated_mean": 0.0923,
+    "diff": 0.0053,
+    "se": 0.0084,
+    "p": 0.5256,
+    "n": 5890
+   },
+   {
+    "var": "used_anyfert_b",
+    "control_mean": 0.8741,
+    "treated_mean": 0.8876,
+    "diff": 0.0134,
+    "se": 0.0097,
+    "p": 0.1688,
+    "n": 5890
+   },
+   {
+    "var": "lime_recommended",
+    "control_mean": 0.7707,
+    "treated_mean": 0.7645,
+    "diff": -0.0049,
+    "se": 0.0059,
+    "p": 0.4068,
+    "n": 5890
+   }
+  ],
+  "icc": [
+   {
+    "outcome": "heard_lime",
+    "label": "Heard of lime (survey)",
+    "icc_fo": 0.03976,
+    "F": 8.60033,
+    "p": 0.0,
+    "n": 4822,
+    "n_fo": 26,
+    "design_effect": 8.33499
+   },
+   {
+    "outcome": "knows_lime",
+    "label": "Names lime as acidity remedy (survey)",
+    "icc_fo": 0.03105,
+    "F": 7.01658,
+    "p": 0.0,
+    "n": 4933,
+    "n_fo": 26,
+    "design_effect": 6.86008
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "label": "Used lime, LR2017 (survey)",
+    "icc_fo": 0.00606,
+    "F": 2.14414,
+    "p": 0.00079,
+    "n": 4933,
+    "n_fo": 26,
+    "design_effect": 2.14312
+   },
+   {
+    "outcome": "used_urea_lr2017",
+    "label": "Used urea, LR2017 (survey)",
+    "icc_fo": 0.00569,
+    "F": 2.07525,
+    "p": 0.0013,
+    "n": 4933,
+    "n_fo": 26,
+    "design_effect": 2.07469
+   }
+  ],
+  "robust": [
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "Baseline (all interviews)",
+    "b": 0.04895,
+    "se": 0.0127,
+    "p": 0.00012,
+    "n": 4933
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "SE clustered by field officer",
+    "b": 0.04895,
+    "se": 0.01449,
+    "p": 0.0024,
+    "n": 4933
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "+ field-officer fixed effects",
+    "b": 0.05018,
+    "se": 0.01269,
+    "p": 8e-05,
+    "n": 4933
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "Drop Red-tier FOs",
+    "b": 0.05117,
+    "se": 0.01347,
+    "p": 0.00015,
+    "n": 4449
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "Green-tier FOs only",
+    "b": 0.06834,
+    "se": 0.01627,
+    "p": 3e-05,
+    "n": 2990
+   }
+  ],
+  "arms_itt": [
+   {
+    "outcome": "heard_lime",
+    "label": "Heard of lime (survey)",
+    "SMS_b": 0.04322,
+    "SMS_se": 0.01487,
+    "SMS_p": 0.00367,
+    "SMS+Call offer_b": 0.05402,
+    "SMS+Call offer_se": 0.01476,
+    "SMS+Call offer_p": 0.00026,
+    "SMS+Call_b": 0.0685,
+    "SMS+Call_se": 0.01436,
+    "SMS+Call_p": 0.0,
+    "p_arms_equal": 0.16574
+   },
+   {
+    "outcome": "knows_lime",
+    "label": "Names lime as acidity remedy (survey)",
+    "SMS_b": 0.09679,
+    "SMS_se": 0.01903,
+    "SMS_p": 0.0,
+    "SMS+Call offer_b": 0.09264,
+    "SMS+Call offer_se": 0.01925,
+    "SMS+Call offer_p": 0.0,
+    "SMS+Call_b": 0.11745,
+    "SMS+Call_se": 0.01904,
+    "SMS+Call_p": 0.0,
+    "p_arms_equal": 0.37925
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "label": "Used lime, LR2017 (survey)",
+    "SMS_b": 0.0415,
+    "SMS_se": 0.01563,
+    "SMS_p": 0.00797,
+    "SMS+Call offer_b": 0.03124,
+    "SMS+Call offer_se": 0.01571,
+    "SMS+Call offer_p": 0.04676,
+    "SMS+Call_b": 0.07447,
+    "SMS+Call_se": 0.01614,
+    "SMS+Call_p": 0.0,
+    "p_arms_equal": 0.02545
+   },
+   {
+    "outcome": "used_urea_lr2017",
+    "label": "Used urea, LR2017 (survey)",
+    "SMS_b": 0.03328,
+    "SMS_se": 0.01489,
+    "SMS_p": 0.02548,
+    "SMS+Call offer_b": 0.01492,
+    "SMS+Call offer_se": 0.01459,
+    "SMS+Call offer_p": 0.30631,
+    "SMS+Call_b": 0.05155,
+    "SMS+Call_se": 0.01518,
+    "SMS+Call_p": 0.00069,
+    "p_arms_equal": 0.06002
+   },
+   {
+    "outcome": "redeemed_lime",
+    "label": "Redeemed lime coupon (admin)",
+    "SMS_b": 0.0128,
+    "SMS_se": 0.01139,
+    "SMS_p": 0.26102,
+    "SMS+Call offer_b": 0.01846,
+    "SMS+Call offer_se": 0.01137,
+    "SMS+Call offer_p": 0.10464,
+    "SMS+Call_b": 0.01882,
+    "SMS+Call_se": 0.01149,
+    "SMS+Call_p": 0.1017,
+    "p_arms_equal": 0.84453
+   },
+   {
+    "outcome": "redeemed_fert",
+    "label": "Redeemed fertiliser coupon (admin)",
+    "SMS_b": 0.00132,
+    "SMS_se": 0.00994,
+    "SMS_p": 0.89432,
+    "SMS+Call offer_b": -0.01886,
+    "SMS+Call offer_se": 0.00944,
+    "SMS+Call offer_p": 0.04586,
+    "SMS+Call_b": -0.00141,
+    "SMS+Call_se": 0.0099,
+    "SMS+Call_p": 0.88668,
+    "p_arms_equal": 0.06335
+   }
+  ],
+  "het": [
+   {
+    "modifier": "Lime recommended (soil pH)",
+    "outcome": "used_lime_lr2017",
+    "itt_h0": -0.04924,
+    "itt_h1": 0.0778,
+    "interaction": 0.12704,
+    "se_interaction": 0.02943,
+    "p_interaction": 2e-05,
+    "n": 4933
+   },
+   {
+    "modifier": "Lime recommended (soil pH)",
+    "outcome": "redeemed_lime",
+    "itt_h0": -0.02331,
+    "itt_h1": 0.02884,
+    "interaction": 0.05215,
+    "se_interaction": 0.02008,
+    "p_interaction": 0.00941,
+    "n": 5890
+   },
+   {
+    "modifier": "Female",
+    "outcome": "used_lime_lr2017",
+    "itt_h0": 0.05707,
+    "itt_h1": 0.03245,
+    "interaction": -0.02462,
+    "se_interaction": 0.02673,
+    "p_interaction": 0.35705,
+    "n": 4933
+   },
+   {
+    "modifier": "Female",
+    "outcome": "redeemed_lime",
+    "itt_h0": 0.02841,
+    "itt_h1": -0.0058,
+    "interaction": -0.03421,
+    "se_interaction": 0.01991,
+    "p_interaction": 0.08584,
+    "n": 5890
+   },
+   {
+    "modifier": "Used lime before baseline",
+    "outcome": "used_lime_lr2017",
+    "itt_h0": 0.04013,
+    "itt_h1": 0.13596,
+    "interaction": 0.09584,
+    "se_interaction": 0.04739,
+    "p_interaction": 0.04319,
+    "n": 4933
+   },
+   {
+    "modifier": "Used lime before baseline",
+    "outcome": "redeemed_lime",
+    "itt_h0": 0.01709,
+    "itt_h1": 0.01257,
+    "interaction": -0.00452,
+    "se_interaction": 0.03146,
+    "p_interaction": 0.88568,
+    "n": 5890
+   }
+  ],
+  "arm_by_fo_p": 0.2637010714154881,
+  "fo_outcome_spearman": [
+   {
+    "outcome": "knows_lime",
+    "rho": 0.2793162393162393,
+    "p": 0.164367126574685
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "rho": 0.3784615384615384,
+    "p": 0.0573885222955408
+   }
+  ],
+  "fo_tests_red": [
+   {
+    "fo_id": "P2-01",
+    "metric": "path_len",
+    "effect_sd": -0.655,
+    "q": 0.029
+   },
+   {
+    "fo_id": "P2-04",
+    "metric": "path_len",
+    "effect_sd": -0.436,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-05",
+    "metric": "path_len",
+    "effect_sd": -0.857,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-07",
+    "metric": "path_len",
+    "effect_sd": -0.414,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-100",
+    "metric": "path_len",
+    "effect_sd": -0.642,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-101",
+    "metric": "path_len",
+    "effect_sd": -0.77,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-102",
+    "metric": "path_len",
+    "effect_sd": -0.59,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-103",
+    "metric": "path_len",
+    "effect_sd": -0.368,
+    "q": 0.003
+   },
+   {
+    "fo_id": "P2-99",
+    "metric": "path_len",
+    "effect_sd": -0.712,
+    "q": 0.0
+   },
+   {
+    "fo_id": "P2-05",
+    "metric": "dk_rate",
+    "effect_sd": -0.285,
+    "q": 0.006
+   },
+   {
+    "fo_id": "P2-07",
+    "metric": "dk_rate",
+    "effect_sd": -0.348,
+    "q": 0.003
+   },
+   {
+    "fo_id": "P2-10",
+    "metric": "dk_rate",
+    "effect_sd": -0.326,
+    "q": 0.001
+   },
+   {
+    "fo_id": "P2-102",
+    "metric": "dk_rate",
+    "effect_sd": -0.286,
+    "q": 0.018
+   },
+   {
+    "fo_id": "P2-19",
+    "metric": "dk_rate",
+    "effect_sd": -0.327,
+    "q": 0.001
+   },
+   {
+    "fo_id": "P2-22",
+    "metric": "dk_rate",
+    "effect_sd": -0.283,
+    "q": 0.001
+   },
+   {
+    "fo_id": "P2-06",
+    "metric": "straightline",
+    "effect_sd": 0.429,
+    "q": 0.013
+   },
+   {
+    "fo_id": "P2-07",
+    "metric": "straightline",
+    "effect_sd": 0.538,
+    "q": 0.013
+   },
+   {
+    "fo_id": "P2-05",
+    "metric": "gate_no",
+    "effect_sd": 0.401,
+    "q": 0.003
+   },
+   {
+    "fo_id": "P2-07",
+    "metric": "gate_no",
+    "effect_sd": 0.315,
+    "q": 0.009
+   },
+   {
+    "fo_id": "P2-08",
+    "metric": "gate_no",
+    "effect_sd": 0.254,
+    "q": 0.002
+   },
+   {
+    "fo_id": "P2-10",
+    "metric": "gate_no",
+    "effect_sd": 0.334,
+    "q": 0.002
+   }
+  ]
+ },
+ "pad1": {
+  "n_baseline": 1897,
+  "n_endline": 1511,
+  "n_fo": 23,
+  "tiers": {
+   "Green": 14,
+   "Insufficient": 5,
+   "Amber": 3,
+   "Red": 1
+  },
+  "red_fos": [
+   "P1-18"
+  ],
+  "amber_fos": [
+   "P1-19",
+   "P1-26",
+   "P1-28"
+  ],
+  "null_mean_red": 0.0,
+  "null_p_any_red": 0.0,
+  "null_mean_flagged": 0.31666666666666665,
+  "null_p_any_flag": 0.25,
+  "omnibus": {
+   "path_len": 0.000249937515621,
+   "dk_rate": 0.000249937515621,
+   "straightline": 0.620094976255936,
+   "gate_no": 0.000249937515621,
+   "dup_vector": 0.1639590102474381,
+   "admin_mismatch": 0.0069982504373906,
+   "logic_viol": null
+  },
+  "logic_viol": 0.0,
+  "dk": 0.01615318994491953,
+  "dup": 0.003970880211780278,
+  "straight": 0.01985440105890139,
+  "arms": {
+   "General SMS": 633,
+   "Local SMS": 632,
+   "Control": 632
+  },
+  "resp_by_arm": {
+   "Control": 0.7943,
+   "General SMS": 0.7994,
+   "Local SMS": 0.7959
+  },
+  "itt": [
+   {
+    "outcome": "heard_lime",
+    "label": "Heard of lime (survey)",
+    "source": "survey",
+    "control_mean": 0.77686,
+    "itt": 0.03089,
+    "se": 0.02207,
+    "ci_lo": -0.01236,
+    "ci_hi": 0.07414,
+    "p": 0.16177,
+    "n": 1471,
+    "mde_80": 0.06178,
+    "rel_effect": 0.03976,
+    "lee_lo": 0.04602,
+    "lee_hi": 0.05,
+    "lee_ci_lo": -0.00641,
+    "lee_ci_hi": 0.1096,
+    "p_holm": 0.23487,
+    "q_bh": 0.16177
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "label": "Used lime, SR2016 (survey)",
+    "source": "survey",
+    "control_mean": 0.0757,
+    "itt": 0.04643,
+    "se": 0.01577,
+    "ci_lo": 0.01552,
+    "ci_hi": 0.07735,
+    "p": 0.00329,
+    "n": 1511,
+    "mde_80": 0.04416,
+    "rel_effect": 0.6134,
+    "lee_lo": 0.04669,
+    "lee_hi": 0.05067,
+    "lee_ci_lo": -0.01485,
+    "lee_ci_hi": 0.10828,
+    "p_holm": 0.01318,
+    "q_bh": 0.01318
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "label": "Used lime, LR2017 (survey)",
+    "source": "survey",
+    "control_mean": 0.11155,
+    "itt": 0.04728,
+    "se": 0.01814,
+    "ci_lo": 0.01172,
+    "ci_hi": 0.08283,
+    "p": 0.00925,
+    "n": 1511,
+    "mde_80": 0.05079,
+    "rel_effect": 0.42381,
+    "lee_lo": 0.04566,
+    "lee_hi": 0.04964,
+    "lee_ci_lo": -0.00718,
+    "lee_ci_hi": 0.10384,
+    "p_holm": 0.02774,
+    "q_bh": 0.0185
+   },
+   {
+    "outcome": "redeemed_lime",
+    "label": "Redeemed lime coupon, SR2016 (admin)",
+    "source": "admin",
+    "control_mean": 0.13133,
+    "itt": 0.02606,
+    "se": 0.01664,
+    "ci_lo": -0.00655,
+    "ci_hi": 0.05866,
+    "p": 0.11744,
+    "n": 1897,
+    "mde_80": 0.04658,
+    "rel_effect": 0.19841,
+    "lee_lo": NaN,
+    "lee_hi": NaN,
+    "lee_ci_lo": NaN,
+    "lee_ci_hi": NaN,
+    "p_holm": 0.23487,
+    "q_bh": 0.15658
+   }
+  ],
+  "balance": [
+   {
+    "var": "age_b",
+    "control_mean": 46.2547,
+    "treated_mean": 45.8008,
+    "diff": -0.4528,
+    "se": 0.5759,
+    "p": 0.4319,
+    "n": 1897
+   },
+   {
+    "var": "female_b",
+    "control_mean": 0.3687,
+    "treated_mean": 0.3723,
+    "diff": 0.0024,
+    "se": 0.0219,
+    "p": 0.913,
+    "n": 1897
+   },
+   {
+    "var": "primary_b",
+    "control_mean": 0.6044,
+    "treated_mean": 0.6356,
+    "diff": 0.0323,
+    "se": 0.0236,
+    "p": 0.1717,
+    "n": 1897
+   },
+   {
+    "var": "english_b",
+    "control_mean": 0.2959,
+    "treated_mean": 0.2846,
+    "diff": -0.0108,
+    "se": 0.0221,
+    "p": 0.6242,
+    "n": 1897
+   },
+   {
+    "var": "size_shamba_b",
+    "control_mean": 2.0001,
+    "treated_mean": 1.9968,
+    "diff": -0.0074,
+    "se": 0.1791,
+    "p": 0.9671,
+    "n": 1897
+   },
+   {
+    "var": "ever_used_lime_b",
+    "control_mean": 0.1203,
+    "treated_mean": 0.1233,
+    "diff": 0.003,
+    "se": 0.0158,
+    "p": 0.8502,
+    "n": 1897
+   }
+  ],
+  "icc": [
+   {
+    "outcome": "heard_lime",
+    "label": "Heard of lime (survey)",
+    "icc_fo": 0.03059,
+    "F": 3.00015,
+    "p": 0.0,
+    "n": 1471,
+    "n_fo": 23,
+    "design_effect": 2.92586
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "label": "Used lime, SR2016 (survey)",
+    "icc_fo": 0.01999,
+    "F": 2.32772,
+    "p": 0.00047,
+    "n": 1511,
+    "n_fo": 23,
+    "design_effect": 2.29297
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "label": "Used lime, LR2017 (survey)",
+    "icc_fo": -0.00093,
+    "F": 0.93942,
+    "p": 0.54167,
+    "n": 1511,
+    "n_fo": 23,
+    "design_effect": 1.0
+   }
+  ],
+  "robust": [
+   {
+    "outcome": "used_lime_sr2016",
+    "spec": "Baseline (all interviews)",
+    "b": 0.04643,
+    "se": 0.01577,
+    "p": 0.00329,
+    "n": 1511
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "spec": "SE clustered by field officer",
+    "b": 0.04643,
+    "se": 0.01755,
+    "p": 0.01478,
+    "n": 1511
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "spec": "+ field-officer fixed effects",
+    "b": 0.04811,
+    "se": 0.01591,
+    "p": 0.00254,
+    "n": 1511
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "spec": "Drop Red-tier FOs",
+    "b": 0.05142,
+    "se": 0.01638,
+    "p": 0.00173,
+    "n": 1437
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "spec": "Green-tier FOs only",
+    "b": 0.03711,
+    "se": 0.01822,
+    "p": 0.04191,
+    "n": 1115
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "Baseline (all interviews)",
+    "b": 0.04728,
+    "se": 0.01814,
+    "p": 0.00925,
+    "n": 1511
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "SE clustered by field officer",
+    "b": 0.04728,
+    "se": 0.0178,
+    "p": 0.01445,
+    "n": 1511
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "+ field-officer fixed effects",
+    "b": 0.0507,
+    "se": 0.01842,
+    "p": 0.00598,
+    "n": 1511
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "Drop Red-tier FOs",
+    "b": 0.04733,
+    "se": 0.01877,
+    "p": 0.01181,
+    "n": 1437
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "spec": "Green-tier FOs only",
+    "b": 0.0588,
+    "se": 0.02142,
+    "p": 0.00615,
+    "n": 1115
+   }
+  ],
+  "arms_itt": [
+   {
+    "outcome": "heard_lime",
+    "label": "Heard of lime (survey)",
+    "General SMS_b": 0.02998,
+    "General SMS_se": 0.02545,
+    "General SMS_p": 0.23898,
+    "Local SMS_b": 0.0318,
+    "Local SMS_se": 0.02508,
+    "Local SMS_p": 0.20496,
+    "p_arms_equal": 0.94086
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "label": "Used lime, SR2016 (survey)",
+    "General SMS_b": 0.04408,
+    "General SMS_se": 0.01864,
+    "General SMS_p": 0.01815,
+    "Local SMS_b": 0.0488,
+    "Local SMS_se": 0.01903,
+    "Local SMS_p": 0.01043,
+    "p_arms_equal": 0.81867
+   },
+   {
+    "outcome": "used_lime_lr2017",
+    "label": "Used lime, LR2017 (survey)",
+    "General SMS_b": 0.04423,
+    "General SMS_se": 0.02161,
+    "General SMS_p": 0.04082,
+    "Local SMS_b": 0.05035,
+    "Local SMS_se": 0.0214,
+    "Local SMS_p": 0.01879,
+    "p_arms_equal": 0.79091
+   },
+   {
+    "outcome": "redeemed_lime",
+    "label": "Redeemed lime coupon, SR2016 (admin)",
+    "General SMS_b": 0.03852,
+    "General SMS_se": 0.01962,
+    "General SMS_p": 0.04974,
+    "Local SMS_b": 0.01354,
+    "Local SMS_se": 0.01904,
+    "Local SMS_p": 0.47713,
+    "p_arms_equal": 0.20476
+   }
+  ],
+  "het": [
+   {
+    "modifier": "Female",
+    "outcome": "used_lime_lr2017",
+    "itt_h0": 0.05451,
+    "itt_h1": 0.03545,
+    "interaction": -0.01906,
+    "se_interaction": 0.03567,
+    "p_interaction": 0.59329,
+    "n": 1511
+   },
+   {
+    "modifier": "Female",
+    "outcome": "redeemed_lime",
+    "itt_h0": 0.0283,
+    "itt_h1": 0.02223,
+    "interaction": -0.00607,
+    "se_interaction": 0.03391,
+    "p_interaction": 0.85796,
+    "n": 1897
+   },
+   {
+    "modifier": "Used lime before baseline",
+    "outcome": "used_lime_lr2017",
+    "itt_h0": 0.05054,
+    "itt_h1": 0.02515,
+    "interaction": -0.02539,
+    "se_interaction": 0.06103,
+    "p_interaction": 0.67748,
+    "n": 1511
+   },
+   {
+    "modifier": "Used lime before baseline",
+    "outcome": "redeemed_lime",
+    "itt_h0": 0.02167,
+    "itt_h1": 0.05779,
+    "interaction": 0.03612,
+    "se_interaction": 0.05074,
+    "p_interaction": 0.47668,
+    "n": 1897
+   }
+  ],
+  "arm_by_fo_p": 0.8004198961128117,
+  "fo_outcome_spearman": [
+   {
+    "outcome": "heard_lime",
+    "rho": 0.6837944664031621,
+    "p": 0.0007998400319936
+   },
+   {
+    "outcome": "used_lime_sr2016",
+    "rho": 0.2015810276679842,
+    "p": 0.3481303739252149
+   }
+  ]
+ },
+ "sim": {
+  "power": {
+   "naive|0.0075|0.0": [
+    0.293,
+    0.3005
+   ],
+   "speed|0.0075|0.0": [
+    0.007,
+    0.0056
+   ],
+   "dk|0.0075|0.0": [
+    0.013,
+    0.0051
+   ],
+   "red|0.0075|0.0": [
+    0.0,
+    0.0
+   ],
+   "naive|0.0075|0.1": [
+    0.767,
+    0.2917
+   ],
+   "speed|0.0075|0.1": [
+    0.087,
+    0.008
+   ],
+   "dk|0.0075|0.1": [
+    0.067,
+    0.0035
+   ],
+   "red|0.0075|0.1": [
+    0.007,
+    0.0
+   ],
+   "naive|0.0075|0.2": [
+    1.0,
+    0.2651
+   ],
+   "speed|0.0075|0.2": [
+    0.507,
+    0.0043
+   ],
+   "dk|0.0075|0.2": [
+    0.16,
+    0.004
+   ],
+   "red|0.0075|0.2": [
+    0.067,
+    0.0
+   ],
+   "naive|0.0075|0.3": [
+    1.0,
+    0.2352
+   ],
+   "speed|0.0075|0.3": [
+    0.953,
+    0.0024
+   ],
+   "dk|0.0075|0.3": [
+    0.393,
+    0.0043
+   ],
+   "red|0.0075|0.3": [
+    0.367,
+    0.0
+   ],
+   "naive|0.0075|0.4": [
+    1.0,
+    0.2123
+   ],
+   "speed|0.0075|0.4": [
+    1.0,
+    0.0027
+   ],
+   "dk|0.0075|0.4": [
+    0.88,
+    0.0035
+   ],
+   "red|0.0075|0.4": [
+    0.88,
+    0.0
+   ],
+   "naive|0.0075|0.5": [
+    1.0,
+    0.1936
+   ],
+   "speed|0.0075|0.5": [
+    1.0,
+    0.0027
+   ],
+   "dk|0.0075|0.5": [
+    0.84,
+    0.0024
+   ],
+   "red|0.0075|0.5": [
+    0.84,
+    0.0
+   ],
+   "naive|0.02|0.0": [
+    0.4,
+    0.3
+   ],
+   "speed|0.02|0.0": [
+    0.0,
+    0.0051
+   ],
+   "dk|0.02|0.0": [
+    0.0,
+    0.0021
+   ],
+   "red|0.02|0.0": [
+    0.0,
+    0.0
+   ],
+   "naive|0.02|0.1": [
+    0.74,
+    0.2899
+   ],
+   "speed|0.02|0.1": [
+    0.08,
+    0.0051
+   ],
+   "dk|0.02|0.1": [
+    0.0,
+    0.0027
+   ],
+   "red|0.02|0.1": [
+    0.0,
+    0.0
+   ],
+   "naive|0.02|0.2": [
+    0.993,
+    0.2707
+   ],
+   "speed|0.02|0.2": [
+    0.527,
+    0.0045
+   ],
+   "dk|0.02|0.2": [
+    0.12,
+    0.0011
+   ],
+   "red|0.02|0.2": [
+    0.053,
+    0.0
+   ],
+   "naive|0.02|0.3": [
+    1.0,
+    0.2475
+   ],
+   "speed|0.02|0.3": [
+    0.907,
+    0.0027
+   ],
+   "dk|0.02|0.3": [
+    0.647,
+    0.0024
+   ],
+   "red|0.02|0.3": [
+    0.587,
+    0.0
+   ],
+   "naive|0.02|0.4": [
+    1.0,
+    0.2275
+   ],
+   "speed|0.02|0.4": [
+    1.0,
+    0.0027
+   ],
+   "dk|0.02|0.4": [
+    1.0,
+    0.0029
+   ],
+   "red|0.02|0.4": [
+    1.0,
+    0.0
+   ],
+   "naive|0.02|0.5": [
+    1.0,
+    0.1971
+   ],
+   "speed|0.02|0.5": [
+    1.0,
+    0.0011
+   ],
+   "dk|0.02|0.5": [
+    0.967,
+    0.0016
+   ],
+   "red|0.02|0.5": [
+    0.967,
+    0.0
+   ],
+   "naive|0.04|0.0": [
+    0.34,
+    0.3005
+   ],
+   "speed|0.04|0.0": [
+    0.0,
+    0.0053
+   ],
+   "dk|0.04|0.0": [
+    0.0,
+    0.0003
+   ],
+   "red|0.04|0.0": [
+    0.0,
+    0.0
+   ],
+   "naive|0.04|0.1": [
+    0.787,
+    0.2883
+   ],
+   "speed|0.04|0.1": [
+    0.093,
+    0.0035
+   ],
+   "dk|0.04|0.1": [
+    0.0,
+    0.0003
+   ],
+   "red|0.04|0.1": [
+    0.0,
+    0.0
+   ],
+   "naive|0.04|0.2": [
+    0.987,
+    0.2584
+   ],
+   "speed|0.04|0.2": [
+    0.487,
+    0.0024
+   ],
+   "dk|0.04|0.2": [
+    0.04,
+    0.0
+   ],
+   "red|0.04|0.2": [
+    0.027,
+    0.0
+   ],
+   "naive|0.04|0.3": [
+    1.0,
+    0.2477
+   ],
+   "speed|0.04|0.3": [
+    0.94,
+    0.0027
+   ],
+   "dk|0.04|0.3": [
+    0.68,
+    0.0
+   ],
+   "red|0.04|0.3": [
+    0.633,
+    0.0
+   ],
+   "naive|0.04|0.4": [
+    1.0,
+    0.2155
+   ],
+   "speed|0.04|0.4": [
+    0.993,
+    0.0016
+   ],
+   "dk|0.04|0.4": [
+    1.0,
+    0.0
+   ],
+   "red|0.04|0.4": [
+    0.993,
+    0.0
+   ],
+   "naive|0.04|0.5": [
+    1.0,
+    0.2037
+   ],
+   "speed|0.04|0.5": [
+    1.0,
+    0.0024
+   ],
+   "dk|0.04|0.5": [
+    1.0,
+    0.0005
+   ],
+   "red|0.04|0.5": [
+    1.0,
+    0.0
+   ]
+  },
+  "delay": {
+   "reps": 100,
+   "detected": 1.0,
+   "median_day": 3.0,
+   "median_interviews": 23.0,
+   "false_days": 1.27,
+   "persist_detected": 1.0,
+   "persist_median_day": 4.0,
+   "persist_false_days": 0.93
+  },
+  "first_detection": [
+   {
+    "fo_id": "SIM-03",
+    "planted": "A_shortcutter",
+    "R1_speed_first_day": 4.0,
+    "R2_dk_deficit_first_day": 4.0,
+    "R3_duplicates_first_day": NaN,
+    "R4_off_hours_first_day": NaN,
+    "R5_impossible_first_day": NaN,
+    "R6_drift_first_day": NaN,
+    "red_first_day": 4.0,
+    "any_flag_first_day": 4
+   },
+   {
+    "fo_id": "SIM-08",
+    "planted": "B_fabricator",
+    "R1_speed_first_day": NaN,
+    "R2_dk_deficit_first_day": NaN,
+    "R3_duplicates_first_day": 3.0,
+    "R4_off_hours_first_day": NaN,
+    "R5_impossible_first_day": 3.0,
+    "R6_drift_first_day": NaN,
+    "red_first_day": 3.0,
+    "any_flag_first_day": 3
+   },
+   {
+    "fo_id": "SIM-14",
+    "planted": "C_off_hours",
+    "R1_speed_first_day": NaN,
+    "R2_dk_deficit_first_day": NaN,
+    "R3_duplicates_first_day": NaN,
+    "R4_off_hours_first_day": 5.0,
+    "R5_impossible_first_day": NaN,
+    "R6_drift_first_day": NaN,
+    "red_first_day": 5.0,
+    "any_flag_first_day": 5
+   },
+   {
+    "fo_id": "SIM-19",
+    "planted": "D_drifter",
+    "R1_speed_first_day": 22.0,
+    "R2_dk_deficit_first_day": NaN,
+    "R3_duplicates_first_day": NaN,
+    "R4_off_hours_first_day": NaN,
+    "R5_impossible_first_day": NaN,
+    "R6_drift_first_day": 15.0,
+    "red_first_day": 22.0,
+    "any_flag_first_day": 15
+   },
+   {
+    "fo_id": "SIM-22",
+    "planted": "E_fast_but_honest",
+    "R1_speed_first_day": 3.0,
+    "R2_dk_deficit_first_day": NaN,
+    "R3_duplicates_first_day": NaN,
+    "R4_off_hours_first_day": NaN,
+    "R5_impossible_first_day": NaN,
+    "R6_drift_first_day": NaN,
+    "red_first_day": NaN,
+    "any_flag_first_day": 3
+   }
+  ],
+  "final": [
+   {
+    "fo_id": "SIM-01",
+    "n": 236,
+    "R1_speed": false,
+    "speed_ratio": 0.998,
+    "dk_rate": 0.042,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -1.968,
+    "drift_drop": 0.101,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-02",
+    "n": 313,
+    "R1_speed": false,
+    "speed_ratio": 1.087,
+    "dk_rate": 0.041,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -1.07,
+    "drift_drop": 0.049,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-03",
+    "n": 201,
+    "R1_speed": true,
+    "speed_ratio": 0.669,
+    "dk_rate": 0.008,
+    "R2_dk_deficit": true,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -1.346,
+    "drift_drop": 0.08,
+    "R6_drift": false,
+    "n_rules": 2,
+    "tier": "Red",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-04",
+    "n": 72,
+    "R1_speed": false,
+    "speed_ratio": 1.061,
+    "dk_rate": 0.045,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 0.674,
+    "drift_drop": -0.084,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-05",
+    "n": 73,
+    "R1_speed": false,
+    "speed_ratio": 1.203,
+    "dk_rate": 0.037,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -2.195,
+    "drift_drop": 0.181,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-06",
+    "n": 109,
+    "R1_speed": false,
+    "speed_ratio": 1.04,
+    "dk_rate": 0.061,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.212,
+    "drift_drop": 0.017,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-07",
+    "n": 326,
+    "R1_speed": false,
+    "speed_ratio": 1.054,
+    "dk_rate": 0.035,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.953,
+    "drift_drop": 0.049,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-08",
+    "n": 193,
+    "R1_speed": false,
+    "speed_ratio": 0.935,
+    "dk_rate": 0.042,
+    "R2_dk_deficit": false,
+    "dup_n": 39,
+    "R3_duplicates": true,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.109,
+    "R5_impossible": true,
+    "drift_t": 0.122,
+    "drift_drop": -0.021,
+    "R6_drift": false,
+    "n_rules": 2,
+    "tier": "Red",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-09",
+    "n": 15,
+    "R1_speed": false,
+    "speed_ratio": 0.0,
+    "dk_rate": 0.048,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 0.0,
+    "drift_drop": 0.0,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-10",
+    "n": 233,
+    "R1_speed": false,
+    "speed_ratio": 1.096,
+    "dk_rate": 0.04,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 0.565,
+    "drift_drop": -0.036,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-11",
+    "n": 217,
+    "R1_speed": false,
+    "speed_ratio": 1.082,
+    "dk_rate": 0.042,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.634,
+    "drift_drop": 0.036,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-12",
+    "n": 255,
+    "R1_speed": false,
+    "speed_ratio": 1.041,
+    "dk_rate": 0.037,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.385,
+    "drift_drop": 0.023,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-13",
+    "n": 310,
+    "R1_speed": false,
+    "speed_ratio": 0.917,
+    "dk_rate": 0.048,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.126,
+    "drift_drop": -0.059,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-14",
+    "n": 120,
+    "R1_speed": false,
+    "speed_ratio": 1.046,
+    "dk_rate": 0.046,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.267,
+    "R4_off_hours": true,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.346,
+    "drift_drop": 0.027,
+    "R6_drift": false,
+    "n_rules": 1,
+    "tier": "Red",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-15",
+    "n": 107,
+    "R1_speed": false,
+    "speed_ratio": 0.956,
+    "dk_rate": 0.056,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.731,
+    "drift_drop": -0.151,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-16",
+    "n": 78,
+    "R1_speed": false,
+    "speed_ratio": 1.025,
+    "dk_rate": 0.041,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.714,
+    "drift_drop": 0.059,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-17",
+    "n": 192,
+    "R1_speed": false,
+    "speed_ratio": 1.13,
+    "dk_rate": 0.037,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 0.025,
+    "drift_drop": -0.002,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-18",
+    "n": 66,
+    "R1_speed": false,
+    "speed_ratio": 1.038,
+    "dk_rate": 0.031,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.228,
+    "drift_drop": -0.138,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-19",
+    "n": 237,
+    "R1_speed": true,
+    "speed_ratio": 0.751,
+    "dk_rate": 0.038,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -7.47,
+    "drift_drop": 0.365,
+    "R6_drift": true,
+    "n_rules": 2,
+    "tier": "Red",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-20",
+    "n": 351,
+    "R1_speed": false,
+    "speed_ratio": 0.954,
+    "dk_rate": 0.043,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 0.646,
+    "drift_drop": -0.03,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-21",
+    "n": 264,
+    "R1_speed": false,
+    "speed_ratio": 1.152,
+    "dk_rate": 0.045,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.568,
+    "drift_drop": -0.089,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-22",
+    "n": 294,
+    "R1_speed": true,
+    "speed_ratio": 0.79,
+    "dk_rate": 0.037,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.115,
+    "drift_drop": -0.064,
+    "R6_drift": false,
+    "n_rules": 1,
+    "tier": "Amber",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-23",
+    "n": 89,
+    "R1_speed": false,
+    "speed_ratio": 1.121,
+    "dk_rate": 0.043,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": -0.453,
+    "drift_drop": 0.036,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-24",
+    "n": 220,
+    "R1_speed": false,
+    "speed_ratio": 1.136,
+    "dk_rate": 0.033,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.869,
+    "drift_drop": -0.124,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-25",
+    "n": 66,
+    "R1_speed": false,
+    "speed_ratio": 1.025,
+    "dk_rate": 0.049,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 0.271,
+    "drift_drop": -0.038,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   },
+   {
+    "fo_id": "SIM-26",
+    "n": 296,
+    "R1_speed": false,
+    "speed_ratio": 1.21,
+    "dk_rate": 0.035,
+    "R2_dk_deficit": false,
+    "dup_n": 0,
+    "R3_duplicates": false,
+    "off_share": 0.0,
+    "R4_off_hours": false,
+    "imp_share": 0.0,
+    "R5_impossible": false,
+    "drift_t": 1.323,
+    "drift_drop": -0.071,
+    "R6_drift": false,
+    "n_rules": 0,
+    "tier": "Green",
+    "day": 30
+   }
+  ]
+ },
+ "xlsform_checks_passed": 11,
+ "xlsform_checks_total": 11,
+ "build_checks": {
+  "passed": 19,
+  "total": 19
+ }
+}

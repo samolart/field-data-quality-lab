@@ -1,0 +1,11 @@
+check,value
+Interviews in endline file,1511
+Distinct field officers,23
+Median interviews per FO,78
+Share with >=1 skip-logic/consistency violation,0.0
+Share exact-duplicate answer vector (path>=10),0.003970880211780278
+Share straight-lining (>=6 yes/no items identical),0.01985440105890139
+Mean don't-know share of categorical answers,0.01615318994491953
+Survey 'no lime' but coupon bought (share of redeemers),0.5943775100401606
+FOs Red / Amber / Green / Insufficient,1 / 3 / 14 / 5
+Runtime (s),5.84

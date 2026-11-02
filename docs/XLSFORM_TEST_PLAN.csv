@@ -1,0 +1,22 @@
+id,case,input,expected_result
+TC01,A4 and A4A differ,Enter 1234567 then 1234568,Hard stop with message; cannot proceed
+TC02,Prefill via pulldata,Enter 1234567 with farmers.csv attached,Respondent name TEST_A shown
+TC03,Phone not answered,A6=3,Jump to end; no consent/survey sections
+TC04,Consent refused,B1=0,B2 reason asked; sections D/E hidden
+TC05,Did not plant maize,E2=0,E3-E8 and E12 hidden; QA gate count=1
+TC06,Planted acres exceed land,"E1=2, E3=3",Constraint blocks E3
+TC07,Land size don't know,"E1=-99, E3=1.5",E3 accepted (DK propagation)
+TC08,Out-of-range land size,E1=500,Constraint blocks; message shown
+TC09,"Fertiliser yes, no type","E4=1, E5 empty",Required; cannot proceed
+TC10,Fertiliser repeat count,E5 = DAP and Urea,Two repeat instances; labels show each fertiliser code
+TC11,Never heard of lime,E12=0,E13-E28 hidden
+TC12,DK combined with other uses,E13 = 1 and 99,Constraint blocks
+TC13,Ever applied=no,E14=0,E15 hidden; lime detail hidden
+TC14,Lime area exceeds planted area,"E17=2, E3=1, E18=2",Constraint blocks E18
+TC15,Implausible lime rate,"E19=10000, area 1",Warning note displays; entry allowed
+TC16,Lime kg out of range,E19=50000,Constraint blocks
+TC17,Harvest don't know,E29=-99,Unit question hidden
+TC18,Very short call,"consent=1, duration<6 min",qa_fast_flag=1
+TC19,Duration calculation,start/end 25 min apart,duration_min ~25
+TC20,Encryption,Submit with public key set,Submission encrypted; export requires private key
+TC21,Audit file,Complete one interview,audit.csv attached with per-field timings

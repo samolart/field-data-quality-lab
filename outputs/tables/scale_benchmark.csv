@@ -1,0 +1,13 @@
+metric,value
+file,OAF3_admin_sample_raw.csv
+rows,202972
+columns,35
+cells (rows x cols),7104020
+unique key column detected,cross_walk_id
+duplicate IDs,0
+fully duplicated rows,0
+columns >50% missing,0
+constant columns,0
+numeric cols with >0 extreme outliers (3xIQR),26
+seconds to read,0.46
+seconds for generic QA suite,0.41

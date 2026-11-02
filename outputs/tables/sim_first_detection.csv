@@ -1,0 +1,6 @@
+fo_id,planted,R1_speed_first_day,R2_dk_deficit_first_day,R3_duplicates_first_day,R4_off_hours_first_day,R5_impossible_first_day,R6_drift_first_day,red_first_day,any_flag_first_day
+SIM-03,A_shortcutter,4.0,4.0,,,,,4.0,4
+SIM-08,B_fabricator,,,3.0,,3.0,,3.0,3
+SIM-14,C_off_hours,,,,5.0,,,5.0,5
+SIM-19,D_drifter,22.0,,,,,15.0,22.0,15
+SIM-22,E_fast_but_honest,3.0,,,,,,,3

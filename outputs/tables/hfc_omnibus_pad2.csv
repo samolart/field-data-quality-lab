@@ -1,0 +1,8 @@
+metric,omnibus_p,note
+path_len,0.00024993751562109475,
+dk_rate,0.00024993751562109475,
+straightline,0.00024993751562109475,
+gate_no,0.00024993751562109475,
+admin_mismatch,0.4356410897275681,
+logic_viol,,no variation (rule never fires)
+dup_vector,,uninformative: 53% of interviews share a vector by chance

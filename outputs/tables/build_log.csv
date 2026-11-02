@@ -1,0 +1,20 @@
+check,passed,detail
+PAD2 baseline: respid unique,True,n=5890
+PAD2 randomization: respid unique,True,n=5890
+PAD2 lime_rec: respid unique,True,n=5890
+PAD2 endline: respid unique,True,n=4933
+PAD2 lime_coupon: respid unique,True,n=700
+PAD2 fert_coupon: respid unique,True,n=483
+PAD2 randomization covers baseline,True,
+PAD2 endline respondents all in baseline,True,
+PAD2 all arms mapped,True,"{'SMS+Call': 1475, 'SMS': 1473, 'SMS+Call offer': 1472, 'Control': 1470}"
+PAD2 endline N matches raw,True,4933
+PAD2 responders have FO id,True,
+PAD2 treated share ~75%,True,0.750
+PAD2 outcomes binary,True,
+PAD1 baseline: respid unique,True,n=1897
+PAD1 treatment: respid unique,True,n=1897
+PAD1 endline: respid unique,True,n=1511
+PAD1 coupon: respid unique,True,n=1897
+PAD1 endline N matches raw,True,1511
+PAD1 responders have FO id,True,

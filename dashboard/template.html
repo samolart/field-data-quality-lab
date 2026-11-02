@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Data Quality Lab</title>
+<style>
+:root{--bg:#f6f7f9;--surf:#fff;--ink:#17202b;--ink2:#4a5666;--mute:#7a8696;--line:#e2e6ec;--grid:#e9ecf1;
+--blue:#1f6feb;--teal:#0f9d8a;--amber:#d98e04;--red:#d1344b;--violet:#7b5cd6;--chip:#eef1f6;--focus:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f141b;--surf:#161d27;--ink:#e8edf4;--ink2:#b3bfce;--mute:#8793a3;--line:#263041;--grid:#222b39;
+--blue:#5b9bff;--teal:#35c4ae;--amber:#f0b429;--red:#ff6b81;--violet:#a58bff;--chip:#1e2733;--focus:#5b9bff}}
+:root[data-theme=dark]{--bg:#0f141b;--surf:#161d27;--ink:#e8edf4;--ink2:#b3bfce;--mute:#8793a3;--line:#263041;--grid:#222b39;--blue:#5b9bff;--teal:#35c4ae;--amber:#f0b429;--red:#ff6b81;--violet:#a58bff;--chip:#1e2733;--focus:#5b9bff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums}
+a{color:var(--blue)} :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
+header{padding:28px 20px 0;max-width:1180px;margin:0 auto}
+h1{font-size:28px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--ink2);max-width:70ch;margin:0 0 18px}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;background:var(--chip);color:var(--ink2);margin-right:6px;border:1px solid var(--line)}
+.badge.sim{border-color:var(--amber);color:var(--amber)} .badge.real{border-color:var(--teal);color:var(--teal)}
+nav{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--line);max-width:1180px;margin:0 auto;padding:0 20px}
+nav button{background:none;border:0;color:var(--ink2);padding:12px 14px;font:inherit;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+nav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--blue);font-weight:600}
+main{max-width:1180px;margin:0 auto;padding:20px;overflow-x:clip}
+section{display:none} section.on{display:block}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.card svg{max-width:100%;height:auto}.card{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:16px;flex:1 1 280px;min-width:0}
+.card h2{font-size:16px;margin:0 0 4px} .card p.n{color:var(--mute);font-size:13px;margin:4px 0 10px}
+.kpi{font-size:30px;font-weight:650;letter-spacing:-.02em;line-height:1.1} .kpil{color:var(--ink2);font-size:13px}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+.chip{border:1px solid var(--line);background:var(--chip);color:var(--ink2);padding:5px 12px;border-radius:99px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--surf);border-color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:13.5px} th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--ink2);cursor:pointer;position:sticky;top:0;background:var(--surf)} tr.sel td{background:var(--chip)} tbody tr{cursor:pointer}
+.tw{overflow:auto;max-height:560px;border:1px solid var(--line);border-radius:8px}
+.cell{display:inline-block;min-width:62px;text-align:center;border-radius:5px;padding:2px 6px}
+.tier{font-weight:600;white-space:nowrap}.t-Red{color:var(--red)}.t-Amber{color:var(--amber)}.t-Green{color:var(--teal)}.t-Insufficient{color:var(--mute)}
+.split>div{min-width:0}#kpis .card{flex:1 1 200px}.split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:14px}@media(max-width:900px){.split{grid-template-columns:1fr}}
+.side{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:16px;align-self:start;position:sticky;top:10px}
+.side h3{margin:0 0 6px;font-size:16px}.side dl{margin:10px 0;display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:13.5px}.side dt{color:var(--ink2)}.side dd{margin:0;text-align:right}
+input[type=range]{width:min(420px,100%)}
+svg text{fill:var(--ink2);font:11.5px system-ui,sans-serif} svg .ax{stroke:var(--grid)} svg .zero{stroke:var(--ink);stroke-width:1}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surf);padding:6px 9px;border-radius:6px;font-size:12.5px;display:none;z-index:9;max-width:260px}
+.note{font-size:13px;color:var(--ink2);border-left:3px solid var(--amber);padding:6px 12px;background:var(--chip);border-radius:0 6px 6px 0;margin:10px 0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin:6px 0}.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+footer{max-width:1180px;margin:10px auto 40px;padding:0 20px;color:var(--mute);font-size:12.5px}
+.tabletoggle{font-size:12.5px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Field Data Quality Lab</h1>
+  <p class="sub">Automated high-frequency checks and experimental results for two Precision Development SMS trials in western Kenya. Real survey data are marked <span class="badge real">real data</span>; anything with call times or durations is <span class="badge sim">simulated</span>.</p>
+</header>
+<nav role="tablist" aria-label="Sections">
+ <button role="tab" aria-selected="true" data-t="monitor">Officer monitor</button>
+ <button role="tab" aria-selected="false" data-t="lab">Simulation lab</button>
+ <button role="tab" aria-selected="false" data-t="impact">Trial results</button>
+ <button role="tab" aria-selected="false" data-t="method">Method and limits</button>
+</nav>
+<main>
+<section id="monitor" class="on">
+ <div class="row" id="kpis"></div>
+ <div class="ctl"><span class="badge real">real data</span>
+  <button class="chip" data-ds="pad2" aria-pressed="true">PAD2 · 26 officers · 4,933 interviews</button>
+  <button class="chip" data-ds="pad1" aria-pressed="false">PAD1 · 23 officers · 1,511 interviews</button>
+  <span style="width:10px"></span>
+  <button class="chip" data-tf="all" aria-pressed="true">All tiers</button><button class="chip" data-tf="Red" aria-pressed="false">■ Red</button><button class="chip" data-tf="Amber" aria-pressed="false">▲ Amber</button><button class="chip" data-tf="Green" aria-pressed="false">● Green</button>
+ </div>
+ <div class="split">
+  <div><div class="tw"><table id="fotab"><thead></thead><tbody></tbody></table></div>
+  <p class="note">Each cell is the officer's difference from the team in standard deviations, after adjusting for treatment arm, baseline covariates and location. Cells shaded warm move in the concerning direction. ● marks a red flag, ○ an amber flag. A flag means: back-check this officer. It is never proof of misconduct.</p></div>
+  <aside class="side" id="detail" aria-live="polite"></aside>
+ </div>
+</section>
+<section id="lab">
+ <div class="row"><div class="card"><h2>Does the detector work? Plant problems, then try to find them.</h2>
+ <p class="n"><span class="badge sim">simulated</span> 26 officers with the real PAD2 workloads. Five carry a planted problem. Move through the field period: the monitor re-scores all officers each day using only the data collected so far.</p>
+ <div class="ctl"><label for="day">Field day <b id="dayv">10</b></label><input id="day" type="range" min="3" max="30" value="10">
+ <button class="chip" id="reveal" aria-pressed="false">Reveal planted problems</button></div>
+ <div class="tw" style="max-height:420px"><table id="simtab"><thead><tr><th>Officer</th><th>Interviews</th><th>Duration vs team</th><th>DK rate</th><th>Rules fired</th><th>Tier</th><th class="rv">Planted</th></tr></thead><tbody></tbody></table></div>
+ <p class="note" id="simnote"></p></div></div>
+ <div class="row"><div class="card"><h2>Flags over the field period</h2><p class="n">Red and amber counts among the 21 honest officers (false alarms) and the 5 planted ones (hits).</p><svg id="flagchart" width="100%" viewBox="0 0 520 220" role="img" aria-label="Flags by day"></svg><div class="legend"><span><i style="background:var(--red)"></i>Planted officers flagged Red</span><span><i style="background:var(--amber)"></i>Planted flagged Amber only</span><span><i style="background:var(--mute)"></i>Honest officers flagged</span></div></div>
+ <div class="card"><h2>Power to catch a shortcutter</h2><p class="n">Chance of flagging one officer whose interviews are shorter by the amount shown (150 simulated field periods per point).</p>
+ <div class="ctl"><button class="chip" data-dk="0.0075" aria-pressed="false">DK rate 0.75% (real PAD2)</button><button class="chip" data-dk="0.02" aria-pressed="false">2%</button><button class="chip" data-dk="0.04" aria-pressed="true">4%</button></div>
+ <svg id="powchart" width="100%" viewBox="0 0 520 250" role="img" aria-label="Power curves"></svg>
+ <div class="legend" id="powleg"></div></div></div>
+</section>
+<section id="impact">
+ <div class="ctl"><span class="badge real">real data</span><button class="chip" data-itt="pad2" aria-pressed="true">PAD2 · 5,890 farmers</button><button class="chip" data-itt="pad1" aria-pressed="false">PAD1 · 1,897 farmers</button></div>
+ <div class="row"><div class="card" style="flex:2 1 520px"><h2>Effect of receiving any SMS advice, versus control</h2><p class="n">Percentage points, 95% confidence interval. Blue is survey-reported, green is administrative coupon records. Holm-adjusted p shown right.</p><svg id="forest" width="100%" viewBox="0 0 640 300" role="img" aria-label="ITT forest plot"></svg></div>
+ <div class="card"><h2>Read this first</h2><div id="impnote" style="font-size:14px"></div></div></div>
+ <div class="row"><div class="card"><h2>Does enumerator quality change the answer?</h2><p class="n">Effect on lime use, PAD2, under five ways of handling field-officer quality.</p><svg id="rob" width="100%" viewBox="0 0 520 200" role="img" aria-label="Robustness"></svg></div>
+ <div class="card"><h2>Targeting works</h2><p class="n">Effect on lime use (pp) by whether lime was recommended for the farmer's soil.</p><svg id="het" width="100%" viewBox="0 0 400 200" role="img" aria-label="Heterogeneity"></svg></div></div>
+</section>
+<section id="method">
+ <div class="row"><div class="card"><h2>How a flag is made</h2><div style="font-size:14px">
+ <p>Each officer is compared with the rest of the team on path length, skip-trigger answers, don't-know rate, straight-lining and survey-vs-coupon discordance. Each metric is adjusted for arm, baseline covariates and location, then tested by shuffling officer labels within location 4,000 times. Benjamini–Hochberg q-values control false discoveries across officers.</p>
+ <p>Correlated metrics form one family, so one behaviour is never counted twice. A red officer shows two independent families at red level, or three flagged.</p>
+ <p>The whole rule was also run on pure-noise labels: it flagged an average of <b id="nullf"></b> officers by chance, versus <b id="obsf"></b> in the real PAD2 data.</p></div></div>
+ <div class="card"><h2>What to remember</h2><div style="font-size:14px"><ul>
+ <li>Survey data are real (openICPSR 186241). Call times and durations are <b>simulated</b>: the surveys carry no paradata.</li>
+ <li>Arm labels t1/t3 are ambiguous in the replication files, so the main contrast pools all SMS arms.</li>
+ <li>Path length is partly driven by respondents' own answers. Flags justify back-checks only.</li>
+ <li>No names, phone numbers or locations appear on this page; the data inside are officer-level aggregates.</li></ul></div></div></div>
+</section>
+</main>
+<footer>Source: Fabregas, Kremer, Lowes, On &amp; Zane (2024), openICPSR 186241. Built with plain HTML, SVG and JavaScript; works offline. <label class="tabletoggle"><input type="checkbox" id="theme"> Dark theme</label></footer>
+<div id="tip" role="status"></div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById("data").textContent);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const tip=$("#tip");
+function showTip(e,h){tip.innerHTML=h;tip.style.display="block";const x=Math.min(e.clientX+14,innerWidth-270);tip.style.left=x+"px";tip.style.top=(e.clientY+14)+"px"}
+function hideTip(){tip.style.display="none"}
+const NS="http://www.w3.org/2000/svg";
+function el(p,t,a={},txt){const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);if(txt!=null)n.textContent=txt;p.appendChild(n);return n}
+const pct=(x,d=1)=>(x*100).toFixed(d);
+const sym={Red:"■",Amber:"▲",Green:"●",Insufficient:"○"};
+const tname=t=>t.split(" ")[0];
+// tabs
+$$("nav button").forEach(b=>b.onclick=()=>{$$("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));$$("section").forEach(s=>s.classList.toggle("on",s.id===b.dataset.t))});
+$("#theme").onchange=e=>document.documentElement.dataset.theme=e.target.checked?"dark":"light";
+// ---------------- monitor
+const MET=[["path_len","Path length",-1],["gate_no","Skip-trigger 'No'",1],["dk_rate","Don't-know rate",-1],["straightline","Straight-lining",1],["admin_mismatch","Survey vs coupon",1]];
+let ds="pad2",tf="all",sortKey="tier",sel=null;
+const tierRank={Red:0,Amber:1,Green:2,Insufficient:3};
+function kpis(){const k=D.key[ds],t=k.tiers;$("#kpis").innerHTML=[
+ [k.n_endline.toLocaleString(),"endline interviews checked"],[k.n_fo,"field officers"],
+ [`${t.Red||0} · ${t.Amber||0} · ${t.Green||0}`,"red · amber · green officers"],
+ [k.null_mean_flagged.toFixed(2),"officers flagged by chance on shuffled labels"]
+ ].map(a=>`<div class="card"><div class="kpi">${a[0]}</div><div class="kpil">${a[1]}</div></div>`).join("");
+ $("#nullf").textContent=D.key.pad2.null_mean_flagged.toFixed(1);$("#obsf").textContent=(D.key.pad2.tiers.Red+D.key.pad2.tiers.Amber)}
+function conc(m,bad){return m.eff==null?0:m.eff*bad}
+function renderTable(){
+ const rows=D.fo[ds].filter(r=>tf==="all"||tname(r.tier)===tf).slice();
+ rows.sort((a,b)=>sortKey==="tier"?(tierRank[tname(a.tier)]-tierRank[tname(b.tier)]||b.nfam-a.nfam):sortKey==="n"?b.n-a.n:sortKey==="fo"?a.fo.localeCompare(b.fo):(conc(b.m[sortKey],MET.find(m=>m[0]===sortKey)[2])-conc(a.m[sortKey],MET.find(m=>m[0]===sortKey)[2])));
+ $("#fotab thead").innerHTML="<tr><th data-k='fo'>Officer</th><th data-k='n'>Interviews</th><th data-k='tier'>Tier</th>"+MET.map(m=>`<th data-k='${m[0]}'>${m[1]}</th>`).join("")+"</tr>";
+ $$("#fotab th").forEach(h=>h.onclick=()=>{sortKey=h.dataset.k;renderTable()});
+ $("#fotab tbody").innerHTML=rows.map(r=>`<tr data-fo="${r.fo}" tabindex="0" class="${sel===r.fo?"sel":""}"><td>${r.fo}</td><td>${r.n}</td><td class="tier t-${tname(r.tier)}">${sym[tname(r.tier)]} ${tname(r.tier)}</td>`+
+  MET.map(m=>{const c=r.m[m[0]];if(c.eff==null)return"<td>–</td>";const s=c.eff*m[2];const a=Math.min(Math.abs(s)/1,1)*.65;const col=s>0?`rgba(217,142,4,${a})`:`rgba(15,157,138,${a*.6})`;
+   return`<td><span class="cell" style="background:${col}">${c.eff>0?"+":""}${c.eff.toFixed(2)}${c.red?" ●":c.conc?" ○":""}</span></td>`}).join("")+"</tr>").join("");
+ $$("#fotab tbody tr").forEach(tr=>{tr.onclick=()=>{sel=tr.dataset.fo;renderTable();detail()};tr.onkeydown=e=>{if(e.key==="Enter")tr.click()}});
+}
+function detail(){
+ const r=D.fo[ds].find(x=>x.fo===sel);const s=$("#detail");
+ if(!r){s.innerHTML="<h3>Select an officer</h3><p style='color:var(--ink2);font-size:13.5px'>Click a row to see the raw numbers and the suggested next step.</p>";return}
+ const t=tname(r.tier);const adv={Red:"Back-check now: call a random 20% sample of this officer's completed interviews and compare with two peers. Review paradata.",Amber:"Review: watch the next sync, run a smaller back-check, and compare with officers on the same questionnaire path.",Green:"No action. Keep in the daily run.",Insufficient:"Fewer than 30 interviews: too little data to judge. Re-run after the next sync."}[t];
+ s.innerHTML=`<h3>${r.fo} <span class="tier t-${t}">${sym[t]} ${t}</span></h3><p style="margin:0;color:var(--ink2);font-size:13.5px">${r.n} interviews · ${r.nfam} flagged ${r.nfam===1?"family":"families"}</p><dl>`+
+ MET.map(m=>{const c=r.m[m[0]];return`<dt>${m[1]}</dt><dd>${c.raw==null?"–":(m[0]==="path_len"?c.raw.toFixed(1)+" items":m[0]==="gate_no"?c.raw.toFixed(2)+" gates":pct(c.raw)+"%")}${c.q!=null?` <span style="color:var(--mute)">q=${c.q<.001?"<0.001":c.q.toFixed(3)}</span>`:""}</dd>`}).join("")+`</dl><div class="note">${adv}</div>`}
+$$("[data-ds]").forEach(b=>b.onclick=()=>{ds=b.dataset.ds;sel=null;$$("[data-ds]").forEach(x=>x.setAttribute("aria-pressed",x===b));kpis();renderTable();detail()});
+$$("[data-tf]").forEach(b=>b.onclick=()=>{tf=b.dataset.tf;$$("[data-tf]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderTable()});
+// ---------------- simulation lab
+let revealed=false;
+const byDay={};D.sim.rows.forEach(r=>{(byDay[r.day]=byDay[r.day]||[]).push(r)});
+function renderSim(){
+ const d=+$("#day").value;$("#dayv").textContent=d;
+ const rows=(byDay[d]||[]).slice().sort((a,b)=>(tierRank[a.tier]-tierRank[b.tier])||a.fo_id.localeCompare(b.fo_id));
+ const rn=["Speed","DK deficit","Duplicates","Off-hours","Impossible timing","Drift"];const rk=["R1_speed","R2_dk_deficit","R3_duplicates","R4_off_hours","R5_impossible","R6_drift"];
+ $("#simtab tbody").innerHTML=rows.map(r=>{const fired=rk.map((k,i)=>r[k]?rn[i]:null).filter(Boolean).join(", ")||"–";const pl=D.sim.planted[r.fo_id];
+  return`<tr><td>${r.fo_id}</td><td>${r.n}</td><td>${r.n<20?'–':(r.speed_ratio*100).toFixed(0)+'%'}</td><td>${pct(r.dk_rate)}%</td><td>${fired}</td><td class="tier t-${r.tier}">${sym[r.tier]} ${r.tier}</td><td class="rv" style="${revealed?"":"visibility:hidden"}">${pl||"honest"}</td></tr>`}).join("");
+ const ok=rows.filter(r=>D.sim.planted[r.fo_id]),fp=rows.filter(r=>!D.sim.planted[r.fo_id]&&r.tier!=="Green");
+ $("#simnote").textContent=`Day ${d}: ${rows.filter(r=>r.tier==="Red").length} officers Red, ${rows.filter(r=>r.tier==="Amber").length} Amber. ${revealed?`${ok.filter(r=>r.tier==="Red").length} of 5 planted problems are Red, ${ok.filter(r=>r.tier==="Amber").length} Amber only, and ${fp.length} honest officers are flagged.`:"Press reveal to see which officers carried a planted problem and how many the monitor caught."}`;
+ $$(".rv").forEach(x=>{if(x.tagName==="TH")x.style.visibility=revealed?"visible":"hidden"});
+ drawFlags(d)}
+$("#day").oninput=renderSim;
+$("#reveal").onclick=function(){revealed=!revealed;this.setAttribute("aria-pressed",revealed);this.textContent=revealed?"Hide planted problems":"Reveal planted problems";renderSim()};
+function drawFlags(cur){
+ const s=$("#flagchart");s.innerHTML="";const W=520,H=220,L=36,B=28,T=10,R=10;const days=Object.keys(byDay).map(Number).sort((a,b)=>a-b);
+ const x=d=>L+(d-3)/27*(W-L-R),y=v=>H-B-v/26*(H-B-T);
+ [0,5,10,15,20,25].forEach(v=>{el(s,"line",{x1:L,x2:W-R,y1:y(v),y2:y(v),class:"ax"});el(s,"text",{x:L-6,y:y(v)+4,"text-anchor":"end"},v)});
+ [3,10,20,30].forEach(d=>el(s,"text",{x:x(d),y:H-8,"text-anchor":"middle"},d));
+ const ser={red:[],amb:[],fp:[]};days.forEach(d=>{const r=byDay[d];ser.red.push([d,r.filter(q=>D.sim.planted[q.fo_id]&&q.tier==="Red").length]);ser.amb.push([d,r.filter(q=>D.sim.planted[q.fo_id]&&q.tier==="Amber").length]);ser.fp.push([d,r.filter(q=>!D.sim.planted[q.fo_id]&&q.tier!=="Green").length])});
+ [["red","var(--red)"],["amb","var(--amber)"],["fp","var(--mute)"]].forEach(([k,c])=>el(s,"polyline",{points:ser[k].map(p=>x(p[0])+","+y(p[1])).join(" "),fill:"none",stroke:c,"stroke-width":2,"stroke-linejoin":"round"}));
+ el(s,"line",{x1:x(cur),x2:x(cur),y1:T,y2:H-B,stroke:"var(--ink)","stroke-dasharray":"3 3"});
+ const hit=el(s,"rect",{x:L,y:T,width:W-L-R,height:H-B-T,fill:"transparent"});
+ hit.onmousemove=e=>{const b=s.getBoundingClientRect();const d=Math.round(3+((e.clientX-b.left)/b.width*W-L)/(W-L-R)*27);if(d<3||d>30)return;const i=d-3;showTip(e,`Day ${d}<br>Planted caught Red: ${ser.red[i][1]}<br>Planted Amber only: ${ser.amb[i][1]}<br>Honest flagged: ${ser.fp[i][1]}`)};hit.onmouseleave=hideTip;
+ el(s,"text",{x:L,y:T+2},"Officers flagged")}
+// power
+let dk=0.04;const PC={naive:["Significance only","var(--amber)"],speed:["Speed rule","var(--blue)"],dk:["DK-deficit rule","var(--violet)"],red:["Speed and DK corroborated","var(--teal)"]};
+function drawPow(){const s=$("#powchart");s.innerHTML="";const W=520,H=250,L=40,B=34,T=10,R=12;const x=v=>L+v/50*(W-L-R),y=v=>H-B-v*(H-B-T);
+ [0,.25,.5,.75,1].forEach(v=>{el(s,"line",{x1:L,x2:W-R,y1:y(v),y2:y(v),class:"ax"});el(s,"text",{x:L-6,y:y(v)+4,"text-anchor":"end"},pct(v,0)+"%")});
+ [0,10,20,30,40,50].forEach(v=>el(s,"text",{x:x(v),y:H-16,"text-anchor":"middle"},v+"%"));el(s,"text",{x:(L+W)/2,y:H-2,"text-anchor":"middle"},"Interviews shorter by");
+ el(s,"line",{x1:x(40),x2:x(40),y1:T,y2:H-B,stroke:"var(--mute)","stroke-dasharray":"2 3"});
+ Object.keys(PC).forEach(r=>{const p=D.sim.power.filter(q=>q.rule===r&&q.dk_base===dk).sort((a,b)=>a.shorter-b.shorter);
+  el(s,"polyline",{points:p.map(q=>x(q.shorter*100)+","+y(q.power)).join(" "),fill:"none",stroke:PC[r][1],"stroke-width":2});
+  p.forEach(q=>{const c=el(s,"circle",{cx:x(q.shorter*100),cy:y(q.power),r:4,fill:PC[r][1],stroke:"var(--surf)","stroke-width":2});
+   c.onmousemove=e=>showTip(e,`<b>${PC[r][0]}</b><br>${(q.shorter*100).toFixed(0)}% shorter: caught ${pct(q.power,0)}%<br>Honest officers wrongly flagged: ${pct(q.false_pos)}%`);c.onmouseleave=hideTip})});
+ $("#powleg").innerHTML=Object.values(PC).map(v=>`<span><i style="background:${v[1]}"></i>${v[0]}</span>`).join("")}
+$$("[data-dk]").forEach(b=>b.onclick=()=>{dk=+b.dataset.dk;$$("[data-dk]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawPow()});
+// ---------------- impact
+let itt="pad2";
+function drawForest(){const s=$("#forest");s.innerHTML="";const d=D.itt[itt];const W=640,L=230,R=110,T=14,B=34,rh=Math.min(46,(300-T-B)/d.length);const H=T+B+rh*d.length;s.setAttribute("viewBox",`0 0 ${W} ${H}`);
+ const lo=Math.min(-4,...d.map(r=>r.ci_lo*100))-1,hi=Math.max(...d.map(r=>r.ci_hi*100))+1;const x=v=>L+(v-lo)/(hi-lo)*(W-L-R);
+ for(let v=Math.ceil(lo/5)*5;v<=hi;v+=5){el(s,"line",{x1:x(v),x2:x(v),y1:T,y2:H-B,class:"ax"});el(s,"text",{x:x(v),y:H-16,"text-anchor":"middle"},v)}
+ el(s,"line",{x1:x(0),x2:x(0),y1:T,y2:H-B,class:"zero"});el(s,"text",{x:(L+W-R)/2,y:H-2,"text-anchor":"middle"},"Percentage points");
+ d.forEach((r,i)=>{const cy=T+rh*(i+.5);const c=r.source==="admin"?"var(--teal)":"var(--blue)";
+  el(s,"text",{x:L-10,y:cy+4,"text-anchor":"end"},r.label);el(s,"line",{x1:x(r.ci_lo*100),x2:x(r.ci_hi*100),y1:cy,y2:cy,stroke:c,"stroke-width":2,"stroke-linecap":"round"});
+  const dot=el(s,"circle",{cx:x(r.itt*100),cy,r:5,fill:c,stroke:"var(--surf)","stroke-width":2});
+  el(s,"text",{x:W-R+10,y:cy+4},"Holm p "+(r.p_holm<.001?"<0.001":r.p_holm.toFixed(3)));
+  dot.onmousemove=e=>showTip(e,`<b>${r.label}</b><br>Control mean ${pct(r.control_mean)}%<br>Effect +${(r.itt*100).toFixed(1)} pp (CI ${(r.ci_lo*100).toFixed(1)} to ${(r.ci_hi*100).toFixed(1)})<br>n = ${r.n.toLocaleString()}`);dot.onmouseleave=hideTip});
+ const s2=D.itt.pad2,sv=s2.find(r=>r.outcome==="used_lime_lr2017"),ad=s2.find(r=>r.outcome==="redeemed_lime");
+ $("#impnote").innerHTML=`<p>Farmers who received SMS advice were <b>${(sv.itt*100).toFixed(1)} points</b> more likely to report using lime (control ${pct(sv.control_mean,0)}%). Coupon records show a smaller rise of <b>${(ad.itt*100).toFixed(1)} points</b>, not statistically significant after adjustment.</p><p>Both numbers can be right: lime can be bought without a coupon, and self-reports can run high. Treat the survey figure as an upper reading.</p><p>PAD1 shows the same direction: ${(D.itt.pad1.find(r=>r.outcome==="used_lime_lr2017").itt*100).toFixed(1)} points on LR2017 lime use.</p>`}
+$$("[data-itt]").forEach(b=>b.onclick=()=>{itt=b.dataset.itt;$$("[data-itt]").forEach(x=>x.setAttribute("aria-pressed",x===b));drawForest()});
+function drawRob(){const s=$("#rob");s.innerHTML="";const d=D.rob.filter(r=>r.outcome==="used_lime_lr2017");const W=520,L=200,R=20,T=10,B=30,rh=34;const x=v=>L+(v-0)/(12)*(W-L-R);
+ [0,3,6,9,12].forEach(v=>{el(s,"line",{x1:x(v),x2:x(v),y1:T,y2:T+rh*d.length,class:"ax"});el(s,"text",{x:x(v),y:T+rh*d.length+16,"text-anchor":"middle"},v)});
+ d.forEach((r,i)=>{const cy=T+rh*(i+.5);el(s,"text",{x:L-8,y:cy+4,"text-anchor":"end"},r.spec);el(s,"line",{x1:x((r.b-1.96*r.se)*100),x2:x((r.b+1.96*r.se)*100),y1:cy,y2:cy,stroke:"var(--mute)","stroke-width":2});
+  const c=el(s,"circle",{cx:x(r.b*100),cy,r:5,fill:"var(--blue)",stroke:"var(--surf)","stroke-width":2});c.onmousemove=e=>showTip(e,`${r.spec}<br>+${(r.b*100).toFixed(1)} pp (se ${(r.se*100).toFixed(1)}), n=${r.n.toLocaleString()}`);c.onmouseleave=hideTip})}
+function drawHet(){const s=$("#het");s.innerHTML="";const h=D.het.filter(r=>r.outcome==="used_lime_lr2017"&&r.modifier.startsWith("Lime recommended"))[0];const W=400,H=200,T=14,B=44;const y=v=>(H-B)/2+T-v*(H-B-T)/2/12*1.0;
+ [-8,-4,0,4,8].forEach(v=>{el(s,"line",{x1:40,x2:W-10,y1:y(v),y2:y(v),class:v===0?"zero":"ax"});el(s,"text",{x:34,y:y(v)+4,"text-anchor":"end"},v)});
+ [[h.itt_h0*100,"Not recommended","var(--amber)"],[h.itt_h1*100,"Recommended","var(--blue)"]].forEach(([v,l,c],i)=>{const x0=80+i*140;const top=Math.min(y(0),y(v)),ht=Math.abs(y(v)-y(0));
+  const r=el(s,"rect",{x:x0,y:top,width:80,height:ht,fill:c,rx:4});el(s,"text",{x:x0+40,y:H-22,"text-anchor":"middle"},l);el(s,"text",{x:x0+40,y:v>0?top-4:top+ht+13,"text-anchor":"middle"},(v>0?"+":"")+v.toFixed(1));
+  r.onmousemove=e=>showTip(e,`${l}: ${v.toFixed(1)} pp<br>interaction p<0.0001`);r.onmouseleave=hideTip})}
+// init
+kpis();renderTable();detail();renderSim();drawPow();drawForest();drawRob();drawHet();
+</script>
+</body></html>

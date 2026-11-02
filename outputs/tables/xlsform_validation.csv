@@ -1,0 +1,12 @@
+check,passed,detail
+field names unique,True,[]
+"field names valid (letters/digits/_ only, start with letter)",True,
+begin/end groups & repeats balanced,True,[]
+every select list exists in choices,True,[]
+unknown field types,True,[]
+choice names unique within each list,True,[]
+every ${field} reference points to an earlier field,True,[]
+balanced parentheses in all expressions,True,[]
+required fields have hard constraints where numeric,True,
+"paradata present (audit, duration, start/end)",True,
+encryption key slot present in settings (fill public_key before fieldwork),True,

@@ -1,0 +1,8 @@
+metric,omnibus_p,note
+path_len,0.00024993751562109475,
+dk_rate,0.00024993751562109475,
+straightline,0.620094976255936,
+gate_no,0.00024993751562109475,
+dup_vector,0.16395901024743814,
+admin_mismatch,0.0069982504373906525,
+logic_viol,,no variation (rule never fires)
